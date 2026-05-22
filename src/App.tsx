@@ -1,11 +1,14 @@
 import './App.css';
+import Container from './components/Container';
 import Header from './components/Header';
 import PageWrapper from './components/PageWrapper';
 
 const App = () => {
   return (
     <PageWrapper>
-      <Header />
+      <Container>
+        <Header />
+      </Container>
     </PageWrapper>
   );
 };
