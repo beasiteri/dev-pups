@@ -1,7 +1,6 @@
 const Header = () => {
   return (
     <header>
-      {/* Logo */}
       <a className="group" href="/">
         <div className="inline-flex items-center gap-4">
           <img
@@ -12,7 +11,6 @@ const Header = () => {
           <p className="text-lg font-semibold">Dev Pups</p>
         </div>
       </a>
-      {/* Hero copy */}
       <div className="mt-6">
         <h1 className="text-lg font-bold">We've got the best puppies!</h1>
         <p className="text-slate-600">Don't take our word — let the pictures do the talking :)</p>
