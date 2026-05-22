@@ -1,6 +1,3 @@
-import image2 from '../assets/images/2.jpg';
-import image3 from '../assets/images/3.jpg';
-
 const ShortList = () => {
   return (
     <div>
@@ -28,7 +25,7 @@ const ShortList = () => {
             width={32}
             alt="Chase"
             className="aspect-square w-8 object-cover"
-            src={image2}
+            src="/images/2.jpg"
           />
           <p className="px-3 text-sm text-slate-800">Chase</p>
           <button className="group h-full border-l border-slate-100 px-2 hover:bg-slate-100">
@@ -55,7 +52,7 @@ const ShortList = () => {
             width={32}
             alt="Leia"
             className="aspect-square w-8 object-cover"
-            src={image3}
+            src="/images/3.jpg"
           />
           <p className="px-3 text-sm text-slate-800">Leia</p>
           <button className="group h-full border-l border-slate-100 px-2 hover:bg-slate-100">

@@ -1,5 +1,3 @@
-import logo from '../assets/images/logo.png';
-
 const Header = () => {
   return (
     <header>
@@ -7,7 +5,7 @@ const Header = () => {
       <a className="group" href="/">
         <div className="inline-flex items-center gap-4">
           <img
-            src={logo}
+            src="/images/logo.png"
             alt="DevPups"
             className="h-16 transition group-hover:scale-105 group-hover:-rotate-6 md:h-20 lg:h-24"
           />
