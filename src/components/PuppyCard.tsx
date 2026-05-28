@@ -18,7 +18,7 @@ const PuppyCard = ({ puppy }: PuppyProps) => {
           <span className="text-slate-300">·</span>
           <p className="text-slate-500">{puppy.trait}</p>
         </div>
-        <LikeToggle puppy={puppy} />
+        <LikeToggle />
       </div>
     </li>
   );
