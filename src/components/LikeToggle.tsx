@@ -11,8 +11,8 @@ type LikedToggleProps = {
 const LikeToggle = ({ id, liked, setLiked }: LikedToggleProps) => {
   const isThisPuppyLiked = liked.includes(id);
 
-  function handleOnClick() {
-    if (liked.includes(id)) {
+  function toggleLikedPuppy() {
+    if (isThisPuppyLiked) {
       setLiked(liked.filter((pupid) => pupid !== id));
     } else {
       setLiked([...liked, id]);
@@ -20,7 +20,7 @@ const LikeToggle = ({ id, liked, setLiked }: LikedToggleProps) => {
   }
 
   return (
-    <button className="group" onClick={handleOnClick}>
+    <button className="group" onClick={toggleLikedPuppy}>
       <Heart
         className={
           isThisPuppyLiked
