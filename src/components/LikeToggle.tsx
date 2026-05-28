@@ -4,12 +4,8 @@ import { useState } from 'react';
 const LikeToggle = () => {
   const [isLiked, setIsLiked] = useState(false);
 
-  function handleIsLiked() {
-    setIsLiked(!isLiked);
-  }
-
   return (
-    <button className="group" onClick={handleIsLiked}>
+    <button className="group" onClick={() => setIsLiked(!isLiked)}>
       <Heart
         className={
           isLiked ? 'fill-pink-500 stroke-none' : 'stroke-slate-200 group-hover:stroke-slate-300'
