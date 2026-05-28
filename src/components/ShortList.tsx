@@ -9,7 +9,7 @@ type ShortListProps = {
 };
 
 const ShortList = ({ puppies, liked, setLiked }: ShortListProps) => {
-  function handleOnClick(puppyId) {
+  function removeFromLiked(puppyId: Puppy['id']) {
     setLiked(liked.filter((id) => id !== puppyId));
   }
 
@@ -37,7 +37,7 @@ const ShortList = ({ puppies, liked, setLiked }: ShortListProps) => {
               <p className="px-3 text-sm text-slate-800">{puppy.name}</p>
               <button
                 className="group h-full border-l border-slate-100 px-2 hover:bg-slate-100"
-                onClick={() => handleOnClick(puppy.id)}
+                onClick={() => removeFromLiked(puppy.id)}
               >
                 <X className="size-4 stroke-slate-400 group-hover:stroke-red-400" />
               </button>
