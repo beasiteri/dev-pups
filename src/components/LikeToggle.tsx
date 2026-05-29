@@ -1,14 +1,13 @@
-import { use } from 'react';
 import { Heart } from 'lucide-react';
 import type { Puppy } from '../types/puppy';
-import { LikedContext } from '../context/likedContext';
+import { useLiked } from '../context/likedContext';
 
 type LikedToggleProps = {
   id: Puppy['id'];
 };
 
 const LikeToggle = ({ id }: LikedToggleProps) => {
-  const { liked, setLiked } = use(LikedContext);
+  const { liked, setLiked } = useLiked();
   const isThisPuppyLiked = liked.includes(id);
 
   function toggleLikedPuppy() {
