@@ -1,14 +1,15 @@
-import type { Dispatch, SetStateAction } from 'react';
+import { use } from 'react';
 import { Heart, X } from 'lucide-react';
 import type { Puppy } from '../types/puppy';
+import { LikedContext } from '../context/likedContext';
 
 type ShortListProps = {
   puppies: Puppy[];
-  liked: Puppy['id'][];
-  setLiked: Dispatch<SetStateAction<Puppy['id'][]>>;
 };
 
-const ShortList = ({ puppies, liked, setLiked }: ShortListProps) => {
+const ShortList = ({ puppies }: ShortListProps) => {
+  const { liked, setLiked } = use(LikedContext);
+
   function removeFromLiked(puppyId: Puppy['id']) {
     setLiked(liked.filter((id) => id !== puppyId));
   }
