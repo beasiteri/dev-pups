@@ -3,11 +3,10 @@ import type { Puppy } from '../types/puppy';
 import SubmitButton from './SubmitButton';
 
 type NewPuppyFormProps = {
-  puppies: Puppy[];
   setPuppies: Dispatch<SetStateAction<Puppy[]>>;
 };
 
-const NewPuppyForm = ({ puppies, setPuppies }: NewPuppyFormProps) => {
+const NewPuppyForm = ({ setPuppies }: NewPuppyFormProps) => {
   return (
     <div className="mt-12 flex items-center justify-between bg-white p-8 shadow ring ring-black/5">
       <form
@@ -18,7 +17,7 @@ const NewPuppyForm = ({ puppies, setPuppies }: NewPuppyFormProps) => {
             id: Math.random().toString(36).substring(2, 9),
             name: formData.get('name') as string,
             trait: formData.get('trait') as string,
-            imagePath: `/images/${puppies.length + 1}.jpg`,
+            imagePath: `/images/${Math.floor(Math.random() * 16) + 7}.jpg`,
           };
           setPuppies((prevPuppies) => [...prevPuppies, newPuppy]);
         }}

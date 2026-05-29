@@ -21,7 +21,7 @@ const Main = () => {
         </div>
         <PuppiesList puppies={puppies} searchQuery={searchQuery} />
       </LikedContext>
-      <NewPuppyForm puppies={puppies} setPuppies={setPuppies} />
+      <NewPuppyForm setPuppies={setPuppies} />
     </main>
   );
 };
