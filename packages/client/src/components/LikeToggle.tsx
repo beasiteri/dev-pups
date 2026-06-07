@@ -31,11 +31,11 @@ const LikeToggle = ({ id }: LikedToggleProps) => {
             <LoaderCircle className="animate-spin stroke-slate-300" />
          ) : (
             <Heart
-               className={
+               className={`cursor-pointer ${
                   isThisPuppyLiked
                      ? 'fill-pink-500 stroke-none'
                      : 'stroke-slate-200 group-hover:stroke-slate-300'
-               }
+               }`}
             />
          )}
       </button>

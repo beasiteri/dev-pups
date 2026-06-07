@@ -30,16 +30,16 @@ const ShortList = ({ puppies }: ShortListProps) => {
                      <img
                         height={32}
                         width={32}
-                        alt="Chase"
+                        alt={puppy.name}
                         className="aspect-square w-8 object-cover"
-                        src={`/images/${puppy._id}.jpg`}
+                        src={puppy.imagePath}
                      />
                      <p className="px-3 text-sm text-slate-800">{puppy.name}</p>
                      <button
                         className="group h-full border-l border-slate-100 px-2 hover:bg-slate-100"
                         onClick={() => removeFromLiked(puppy._id)}
                      >
-                        <X className="size-4 stroke-slate-400 group-hover:stroke-red-400" />
+                        <X className="size-4 stroke-slate-400 group-hover:stroke-red-400 cursor-pointer" />
                      </button>
                   </li>
                ))}
