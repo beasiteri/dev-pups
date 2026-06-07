@@ -9,15 +9,19 @@ import { LikedContext } from '../context/likedContext';
 
 const Main = () => {
    const [liked, setLiked] = useState<Puppy['id'][]>([]);
+   const [searchQuery, setSearchQuery] = useState<string>('');
 
    return (
       <main>
          <LikedContext.Provider value={{ liked, setLiked }}>
             <div className="mt-24 grid gap-8 sm:grid-cols-2">
-               <Search />
-               <ShortList puppies={puppies} liked={liked} setLiked={setLiked} />
+               <Search
+                  searchQuery={searchQuery}
+                  setSearchQuery={setSearchQuery}
+               />
+               <ShortList puppies={puppies} />
             </div>
-            <PuppiesList puppies={puppies} liked={liked} setLiked={setLiked} />
+            <PuppiesList puppies={puppies} searchQuery={searchQuery} />
          </LikedContext.Provider>
          <NewPuppyForm />
       </main>
