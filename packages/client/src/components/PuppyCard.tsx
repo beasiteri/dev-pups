@@ -1,11 +1,14 @@
+import type { Dispatch, SetStateAction } from 'react';
 import type { Puppy } from '../types/puppy';
 import LikeToggle from './LikeToggle';
 
-type PuppyProps = {
+type PuppyCardProps = {
    puppy: Puppy;
+   liked: Puppy['id'][];
+   setLiked: Dispatch<SetStateAction<Puppy['id'][]>>;
 };
 
-const PuppyCard = ({ puppy }: PuppyProps) => {
+const PuppyCard = ({ puppy, liked, setLiked }: PuppyCardProps) => {
    return (
       <li
          key={puppy.id}
@@ -22,7 +25,7 @@ const PuppyCard = ({ puppy }: PuppyProps) => {
                <span className="text-slate-300">·</span>
                <p className="text-slate-500">{puppy.trait}</p>
             </div>
-            <LikeToggle />
+            <LikeToggle id={puppy.id} liked={liked} setLiked={setLiked} />
          </div>
       </li>
    );
