@@ -8,11 +8,14 @@
       "build": "tsc -b && vite build",
       "lint": "eslint .",
       "preview": "vite preview",
-      "format": "prettier --write ."
+      "format": "prettier --write .",
+      "check": "tsc -b --noEmit"
    },
    "dependencies": {
+      "@tailwindcss/vite": "^4.3.0",
       "react": "^19.2.6",
-      "react-dom": "^19.2.6"
+      "react-dom": "^19.2.6",
+      "tailwindcss": "^4.3.0"
    },
    "devDependencies": {
       "@eslint/js": "^10.0.1",
