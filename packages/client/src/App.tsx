@@ -1,6 +1,7 @@
 import './App.css';
 import Container from './components/Container';
 import Header from './components/Header';
+import Main from './components/Main';
 import PageWrapper from './components/PageWrapper';
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
       <PageWrapper>
          <Container>
             <Header />
+            <Main />
          </Container>
       </PageWrapper>
    );
