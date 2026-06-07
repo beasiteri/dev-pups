@@ -17,7 +17,7 @@ const ShortList = ({ puppies }: ShortListProps) => {
       <div>
          <h2 className="flex items-center gap-2 font-medium">
             <span>Your shortlist</span>
-            <Heart className="inline-block size-6 fill-pink-500 stroke-pink-500" />
+            <Heart className="fill-pink-500 stroke-pink-500" />
          </h2>
          <ul className="mt-4 flex flex-wrap gap-4">
             {puppies
