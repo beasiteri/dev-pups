@@ -24,7 +24,7 @@ const Main = () => {
             </div>
             <PuppiesList puppies={puppies} searchQuery={searchQuery} />
          </LikedContext.Provider>
-         <NewPuppyForm puppies={puppies} setPuppies={setPuppies} />
+         <NewPuppyForm setPuppies={setPuppies} />
       </main>
    );
 };
