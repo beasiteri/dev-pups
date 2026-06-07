@@ -9,7 +9,7 @@ type ShortListProps = {
 const ShortList = ({ puppies }: ShortListProps) => {
    const { liked, setLiked } = useLiked();
 
-   function removeFromLiked(puppyId: Puppy['id']) {
+   function removeFromLiked(puppyId: Puppy['_id']) {
       setLiked(liked.filter((id) => id !== puppyId));
    }
 
@@ -21,10 +21,10 @@ const ShortList = ({ puppies }: ShortListProps) => {
          </h2>
          <ul className="mt-4 flex flex-wrap gap-4">
             {puppies
-               .filter((pup) => liked.includes(pup.id))
+               .filter((pup) => liked.includes(pup._id))
                .map((puppy) => (
                   <li
-                     key={puppy.id}
+                     key={puppy._id}
                      className="relative flex items-center overflow-clip rounded-md bg-white shadow-sm ring ring-black/5 transition duration-100 starting:scale-0 starting:opacity-0"
                   >
                      <img
@@ -32,12 +32,12 @@ const ShortList = ({ puppies }: ShortListProps) => {
                         width={32}
                         alt="Chase"
                         className="aspect-square w-8 object-cover"
-                        src={`/images/${puppy.id}.jpg`}
+                        src={`/images/${puppy._id}.jpg`}
                      />
                      <p className="px-3 text-sm text-slate-800">{puppy.name}</p>
                      <button
                         className="group h-full border-l border-slate-100 px-2 hover:bg-slate-100"
-                        onClick={() => removeFromLiked(puppy.id)}
+                        onClick={() => removeFromLiked(puppy._id)}
                      >
                         <X className="size-4 stroke-slate-400 group-hover:stroke-red-400" />
                      </button>

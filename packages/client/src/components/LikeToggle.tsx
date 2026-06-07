@@ -4,7 +4,7 @@ import { useLiked } from '../context/likedContext';
 import { useState } from 'react';
 
 type LikedToggleProps = {
-   id: Puppy['id'];
+   id: Puppy['_id'];
 };
 
 const LikeToggle = ({ id }: LikedToggleProps) => {

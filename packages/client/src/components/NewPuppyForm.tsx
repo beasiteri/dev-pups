@@ -14,7 +14,7 @@ const NewPuppyForm = ({ setPuppies }: NewPuppyFormProps) => {
                await new Promise((resolve) => setTimeout(resolve, 1500));
 
                const newPuppy: Puppy = {
-                  id: Math.random().toString(36).substring(2, 9),
+                  _id: Math.random().toString(36).substring(2, 9),
                   name: formData.get('name') as string,
                   trait: formData.get('trait') as string,
                   imagePath: `/images/${Math.floor(Math.random() * 16) + 7}.jpg`,

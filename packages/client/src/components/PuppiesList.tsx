@@ -14,7 +14,7 @@ const PuppiesList = ({ puppies, searchQuery }: PuppiesListProps) => {
                puppy.name.toLowerCase().includes(searchQuery.toLowerCase())
             )
             .map((puppy) => (
-               <PuppyCard key={puppy.id} puppy={puppy} />
+               <PuppyCard key={puppy._id} puppy={puppy} />
             ))}
       </ul>
    );

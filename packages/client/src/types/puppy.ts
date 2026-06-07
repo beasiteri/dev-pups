@@ -1,5 +1,5 @@
 export type Puppy = {
-  id: number | string;
+  _id: string;
   name: string;
   trait: string;
   imagePath: string;

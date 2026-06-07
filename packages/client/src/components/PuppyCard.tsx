@@ -8,7 +8,7 @@ type PuppyCardProps = {
 const PuppyCard = ({ puppy }: PuppyCardProps) => {
    return (
       <li
-         key={puppy.id}
+         key={puppy._id}
          className="overflow-clip rounded-lg bg-white shadow-md ring ring-black/5 hover:-translate-y-0.5"
       >
          <img
@@ -22,7 +22,7 @@ const PuppyCard = ({ puppy }: PuppyCardProps) => {
                <span className="text-slate-300">·</span>
                <p className="text-slate-500">{puppy.trait}</p>
             </div>
-            <LikeToggle id={puppy.id} />
+            <LikeToggle id={puppy._id} />
          </div>
       </li>
    );

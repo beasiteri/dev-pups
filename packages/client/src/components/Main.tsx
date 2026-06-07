@@ -9,7 +9,7 @@ import { LikedContext } from '../context/likedContext';
 import ApiPuppies from './ApiPuppies';
 
 const Main = () => {
-   const [liked, setLiked] = useState<Puppy['id'][]>([]);
+   const [liked, setLiked] = useState<Puppy['_id'][]>([]);
    const [searchQuery, setSearchQuery] = useState<string>('');
    const [puppies, setPuppies] = useState<Puppy[]>(puppiesData);
 
