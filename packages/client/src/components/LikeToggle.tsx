@@ -1,14 +1,14 @@
 import { Heart } from 'lucide-react';
 import type { Puppy } from '../types/puppy';
-import type { Dispatch, SetStateAction } from 'react';
+import { LikedContext } from '../context/likedContext';
+import { use } from 'react';
 
 type LikedToggleProps = {
    id: Puppy['id'];
-   liked: Puppy['id'][];
-   setLiked: Dispatch<SetStateAction<Puppy['id'][]>>;
 };
 
-const LikeToggle = ({ id, liked, setLiked }: LikedToggleProps) => {
+const LikeToggle = ({ id }: LikedToggleProps) => {
+   const { liked, setLiked } = use(LikedContext);
    const isThisPuppyLiked = liked.includes(id);
 
    function toggleLikedPuppy() {
