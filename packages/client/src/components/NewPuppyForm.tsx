@@ -1,16 +1,20 @@
-import { useState } from 'react';
-
 const NewPuppyForm = () => {
-   const [name, setName] = useState<string>('');
-   const [trait, setTrait] = useState<string>('');
-
    return (
       <div className="mt-12 flex items-center justify-between bg-white p-8 shadow ring ring-black/5">
          <form
-            onSubmit={(e) => {
-               e.preventDefault();
-               console.log({ name, trait });
+            action={(formData: FormData) => {
+               console.log(Object.fromEntries(formData));
             }}
+            // This is a very basic form submission handler that just logs the form data to the console.
+            /* onSubmit={(e) => {
+                  e.preventDefault();
+                  const formData = new FormData(e.target);
+               //const name = formData.get('name');
+               //const trait = formData.get('trait');
+               //console.log(name, trait);
+               // This is a neat way to get all the form data as an object
+                  console.log(Object.fromEntries(formData));
+               }} */
             className="mt-4 flex w-full flex-col items-start gap-4"
          >
             <div className="grid w-full gap-6 md:grid-cols-3">
@@ -21,8 +25,6 @@ const NewPuppyForm = () => {
                      id="name"
                      type="text"
                      name="name"
-                     value={name}
-                     onChange={(e) => setName(e.target.value)}
                   />
                </fieldset>
                <fieldset className="flex w-full flex-col gap-1">
@@ -32,8 +34,6 @@ const NewPuppyForm = () => {
                      id="trait"
                      type="text"
                      name="trait"
-                     value={trait}
-                     onChange={(e) => setTrait(e.target.value)}
                   />
                </fieldset>
                <fieldset
