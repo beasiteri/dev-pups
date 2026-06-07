@@ -1,3 +1,4 @@
+import { puppies } from '../data/puppies';
 import NewPuppyForm from './NewPuppyForm';
 import PuppiesList from './PuppiesList';
 import Search from './Search';
@@ -10,7 +11,7 @@ const Main = () => {
             <Search />
             <ShortList />
          </div>
-         <PuppiesList />
+         <PuppiesList puppies={puppies} />
          <NewPuppyForm />
       </main>
    );
