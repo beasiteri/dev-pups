@@ -37,3 +37,7 @@ Internally, the root script runs both processes in parallel using concurrently:
 
 server: packages/server  
 client: packages/client
+
+## Screenshot of the page
+
+![Screenshot](./packages/client/public/screencapture-dev-pups.png)
