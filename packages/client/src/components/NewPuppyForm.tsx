@@ -1,5 +1,6 @@
 import type { Dispatch, SetStateAction } from 'react';
 import type { Puppy } from '../types/puppy';
+import SubmitButton from './SubmitButton';
 
 type NewPuppyFormProps = {
    puppies: Puppy[];
@@ -10,7 +11,9 @@ const NewPuppyForm = ({ puppies, setPuppies }: NewPuppyFormProps) => {
    return (
       <div className="mt-12 flex items-center justify-between bg-white p-8 shadow ring ring-black/5">
          <form
-            action={(formData: FormData) => {
+            action={async (formData: FormData) => {
+               await new Promise((resolve) => setTimeout(resolve, 1500));
+
                const newPuppy: Puppy = {
                   id: Math.random().toString(36).substring(2, 9),
                   name: formData.get('name') as string,
@@ -63,12 +66,7 @@ const NewPuppyForm = ({ puppies, setPuppies }: NewPuppyFormProps) => {
                   />
                </fieldset>
             </div>
-            <button
-               className="mt-4 inline-block rounded bg-cyan-300 px-4 py-2 font-medium text-cyan-900 hover:bg-cyan-200 focus:ring-2 focus:ring-cyan-500 focus:outline-none"
-               type="submit"
-            >
-               Add puppy
-            </button>
+            <SubmitButton />
          </form>
       </div>
    );
