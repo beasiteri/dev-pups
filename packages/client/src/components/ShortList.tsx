@@ -1,14 +1,13 @@
 import { Heart, X } from 'lucide-react';
 import type { Puppy } from '../types/puppy';
-import { LikedContext } from '../context/likedContext';
-import { use } from 'react';
+import { useLiked } from '../context/likedContext';
 
 type ShortListProps = {
    puppies: Puppy[];
 };
 
 const ShortList = ({ puppies }: ShortListProps) => {
-   const { liked, setLiked } = use(LikedContext);
+   const { liked, setLiked } = useLiked();
 
    function removeFromLiked(puppyId: Puppy['id']) {
       setLiked(liked.filter((id) => id !== puppyId));
