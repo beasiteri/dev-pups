@@ -1,9 +1,23 @@
-const NewPuppyForm = () => {
+import type { Dispatch, SetStateAction } from 'react';
+import type { Puppy } from '../types/puppy';
+
+type NewPuppyFormProps = {
+   puppies: Puppy[];
+   setPuppies: Dispatch<SetStateAction<Puppy[]>>;
+};
+
+const NewPuppyForm = ({ puppies, setPuppies }: NewPuppyFormProps) => {
    return (
       <div className="mt-12 flex items-center justify-between bg-white p-8 shadow ring ring-black/5">
          <form
             action={(formData: FormData) => {
-               console.log(Object.fromEntries(formData));
+               const newPuppy: Puppy = {
+                  id: Math.random().toString(36).substring(2, 9),
+                  name: formData.get('name') as string,
+                  trait: formData.get('trait') as string,
+                  imagePath: `/images/${puppies.length + 1}.jpg`,
+               };
+               setPuppies((prevPuppies) => [...prevPuppies, newPuppy]);
             }}
             // This is a very basic form submission handler that just logs the form data to the console.
             /* onSubmit={(e) => {
