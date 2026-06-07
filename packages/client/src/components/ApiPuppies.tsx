@@ -10,9 +10,7 @@ const ApiPuppies = () => {
       async function getPuppies() {
          setIsLoading(true);
          try {
-            const response = await fetch(
-               'https://dog.ceo/api/breeds/image/random/6'
-            );
+            const response = await fetch('/puppies');
             if (!response.ok) {
                const errorData = await response.json();
                setError(errorData.message || 'Something went wrong');
@@ -20,7 +18,7 @@ const ApiPuppies = () => {
             }
             const data = await response.json();
             console.log(data);
-            setApiPuppies(data.message);
+            setApiPuppies(data);
          } catch (error) {
             console.log(error);
             setError('Failed to load puppies');
