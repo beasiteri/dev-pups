@@ -1,4 +1,3 @@
-import { puppies } from '../data/puppies';
 import NewPuppyForm from './NewPuppyForm';
 import PuppiesList from './PuppiesList';
 import Search from './Search';
