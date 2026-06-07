@@ -6,8 +6,13 @@
   "packages": [
     "packages/*"
   ],
+  "scripts": {
+    "dev": "bun run index.ts"
+ },
+
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "concurrently": "^10.0.3"
   },
   "peerDependencies": {
     "typescript": "^5"
