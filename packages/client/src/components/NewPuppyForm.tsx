@@ -37,6 +37,7 @@ const NewPuppyForm = ({ setPuppies }: NewPuppyFormProps) => {
                <fieldset className="flex w-full flex-col gap-1">
                   <label htmlFor="name">Name</label>
                   <input
+                     required
                      className="max-w-96 rounded-sm bg-white px-2 py-1 ring ring-black/20 focus:ring-2 focus:ring-cyan-500 focus:outline-none"
                      id="name"
                      type="text"
@@ -46,6 +47,7 @@ const NewPuppyForm = ({ setPuppies }: NewPuppyFormProps) => {
                <fieldset className="flex w-full flex-col gap-1">
                   <label htmlFor="trait">Personality trait</label>
                   <input
+                     required
                      className="max-w-96 rounded-sm bg-white px-2 py-1 ring ring-black/20 focus:ring-2 focus:ring-cyan-500 focus:outline-none"
                      id="trait"
                      type="text"
