@@ -6,6 +6,7 @@ import { puppies as puppiesData } from '../data/puppies';
 import type { Puppy } from '../types/puppy';
 import { useState } from 'react';
 import { LikedContext } from '../context/likedContext';
+import ApiPuppies from './ApiPuppies';
 
 const Main = () => {
    const [liked, setLiked] = useState<Puppy['id'][]>([]);
@@ -14,6 +15,7 @@ const Main = () => {
 
    return (
       <main>
+         <ApiPuppies />
          <LikedContext.Provider value={{ liked, setLiked }}>
             <div className="mt-24 grid gap-8 sm:grid-cols-2">
                <Search
