@@ -1,15 +1,9 @@
-# server
+# Server - Node.js + Express
 
-To install dependencies:
+This is the backend API for the dev-pups project.
 
-```bash
-bun install
-```
-
-To run:
+It is usually started from the root using:
 
 ```bash
-bun run index.ts
+bun run dev
 ```
-
-This project was created using `bun init` in bun v1.3.9. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
