@@ -8,7 +8,9 @@ const SubmitButton = () => {
          type="submit"
          disabled={status.pending}
       >
-         {status.pending ? 'Adding puppy...' : 'Add puppy'}
+         {status.pending
+            ? `Adding ${status?.data?.get('name') || 'puppy'} ...`
+            : 'Add puppy'}
       </button>
    );
 };
