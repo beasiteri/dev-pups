@@ -1,12 +1,18 @@
 import { Heart } from 'lucide-react';
-import type { Puppy } from '../types/puppy';
+import { useState } from 'react';
 
-const LikeToggle = ({ puppy }: { puppy: Puppy }) => {
+const LikeToggle = () => {
+   const [isLiked, setIsLiked] = useState(false);
+
+   function handleIsLiked() {
+      setIsLiked(!isLiked);
+   }
+
    return (
-      <button className="group">
+      <button className="group" onClick={handleIsLiked}>
          <Heart
             className={
-               puppy.id === 2 // Chase
+               isLiked
                   ? 'fill-pink-500 stroke-none'
                   : 'stroke-slate-200 group-hover:stroke-slate-300'
             }
