@@ -38,7 +38,7 @@ const NewPuppyForm = ({ setPuppies }: NewPuppyFormProps) => {
                   <label htmlFor="name">Name</label>
                   <input
                      required
-                     className="max-w-96 rounded-sm bg-white px-2 py-1 ring ring-black/20 focus:ring-2 focus:ring-cyan-500 focus:outline-none"
+                     className="max-w-96 rounded-sm bg-white px-2 py-1 ring ring-black/20 focus:ring-2 focus:ring-[#4a3b38] focus:outline-none"
                      id="name"
                      type="text"
                      name="name"
@@ -48,7 +48,7 @@ const NewPuppyForm = ({ setPuppies }: NewPuppyFormProps) => {
                   <label htmlFor="trait">Personality trait</label>
                   <input
                      required
-                     className="max-w-96 rounded-sm bg-white px-2 py-1 ring ring-black/20 focus:ring-2 focus:ring-cyan-500 focus:outline-none"
+                     className="max-w-96 rounded-sm bg-white px-2 py-1 ring ring-black/20 focus:ring-2 focus:ring-[#4a3b38] focus:outline-none"
                      id="trait"
                      type="text"
                      name="trait"
@@ -60,7 +60,7 @@ const NewPuppyForm = ({ setPuppies }: NewPuppyFormProps) => {
                >
                   <label htmlFor="avatar_url">Profile pic</label>
                   <input
-                     className="max-w-96 rounded-sm bg-white px-2 py-1 ring ring-black/20 focus:ring-2 focus:ring-cyan-500 focus:outline-none"
+                     className="max-w-96 rounded-sm bg-white px-2 py-1 ring ring-black/20 focus:ring-2 focus:ring-[#4a3b38] focus:outline-none"
                      id="avatar_url"
                      type="file"
                      name="avatar_url"

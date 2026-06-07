@@ -4,7 +4,7 @@ const SubmitButton = () => {
    const status = useFormStatus();
    return (
       <button
-         className="mt-4 inline-block rounded bg-cyan-300 px-4 py-2 font-medium text-cyan-900 hover:bg-cyan-200 focus:ring-2 focus:ring-cyan-500 focus:outline-none disabled:bg-slate-200 disabled:cursor-not-allowed"
+         className="mt-4 inline-block rounded bg-[#4a3b38] px-4 py-2 font-medium text-white hover:bg-[#4a3b38] focus:ring-2 focus:ring-[#4a3b38] focus:outline-none disabled:bg-slate-200 disabled:cursor-not-allowed cursor-pointer"
          type="submit"
          disabled={status.pending}
       >
