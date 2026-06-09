@@ -41,7 +41,7 @@ const Main = () => {
    return (
       <main>
          <LikedContext.Provider value={{ liked, setLiked }}>
-            <div className="mt-24 grid gap-8 sm:grid-cols-2">
+            <div className="mt-24 mb-10 grid gap-8 sm:grid-cols-2">
                <Search
                   searchQuery={searchQuery}
                   setSearchQuery={setSearchQuery}
