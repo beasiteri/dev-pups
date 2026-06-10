@@ -1,14 +1,17 @@
 import { LoaderCircle, X } from 'lucide-react';
-import { useState } from 'react';
+import { useState, type Dispatch, type SetStateAction } from 'react';
 import type { Puppy } from '../types/puppy';
-import { toggleLikedStatus } from '../queries';
+import { unlikePuppy } from '../queries';
 
-type DeleteButtonProps = {
+type ShortlistRemoveButtonProps = {
    id: Puppy['_id'];
-   setPuppies: React.Dispatch<React.SetStateAction<Puppy[]>>;
+   setPuppies: Dispatch<SetStateAction<Puppy[]>>;
 };
 
-const DeleteButton = ({ id, setPuppies }: DeleteButtonProps) => {
+const ShortlistRemoveButton = ({
+   id,
+   setPuppies,
+}: ShortlistRemoveButtonProps) => {
    const [pending, setPending] = useState(false);
 
    return (
@@ -16,14 +19,13 @@ const DeleteButton = ({ id, setPuppies }: DeleteButtonProps) => {
          className="group h-full border-l border-slate-100 px-2 hover:bg-slate-100"
          onClick={async () => {
             setPending(true);
-            const updatedPuppy = await toggleLikedStatus(id);
-            setPuppies((prevPups) =>
-               prevPups.map((existingPuppy) =>
-                  existingPuppy._id === updatedPuppy._id
-                     ? updatedPuppy
-                     : existingPuppy
-               )
+
+            const updatedPuppy = await unlikePuppy(id);
+
+            setPuppies((prev) =>
+               prev.map((p) => (p._id === updatedPuppy._id ? updatedPuppy : p))
             );
+
             setPending(false);
          }}
          disabled={pending}
@@ -37,4 +39,4 @@ const DeleteButton = ({ id, setPuppies }: DeleteButtonProps) => {
    );
 };
 
-export default DeleteButton;
+export default ShortlistRemoveButton;

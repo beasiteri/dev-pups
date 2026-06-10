@@ -1,5 +1,5 @@
 import { use, useState } from 'react';
-import getPuppies from '../queries';
+import { getPuppies } from '../queries';
 import type { Puppy } from '../types/puppy';
 import NewPuppyForm from './NewPuppyForm';
 import PuppiesList from './PuppiesList';

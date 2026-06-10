@@ -1,10 +1,11 @@
 import { Heart } from 'lucide-react';
 import type { Puppy } from '../types/puppy';
-import DeleteButton from './DeleteButton';
+import ShortlistRemoveButton from './ShortlistRemoveButton';
+import type { Dispatch, SetStateAction } from 'react';
 
 type ShortListProps = {
    puppies: Puppy[];
-   setPuppies: React.Dispatch<React.SetStateAction<Puppy[]>>;
+   setPuppies: Dispatch<SetStateAction<Puppy[]>>;
 };
 
 const ShortList = ({ puppies, setPuppies }: ShortListProps) => {
@@ -30,7 +31,10 @@ const ShortList = ({ puppies, setPuppies }: ShortListProps) => {
                         src={puppy.imagePath}
                      />
                      <p className="px-3 text-sm text-slate-800">{puppy.name}</p>
-                     <DeleteButton id={puppy._id} setPuppies={setPuppies} />
+                     <ShortlistRemoveButton
+                        id={puppy._id}
+                        setPuppies={setPuppies}
+                     />
                   </li>
                ))}
          </ul>

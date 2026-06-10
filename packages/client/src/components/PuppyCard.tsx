@@ -1,9 +1,10 @@
+import type { Dispatch, SetStateAction } from 'react';
 import type { Puppy } from '../types/puppy';
 import LikeToggle from './LikeToggle';
 
 type PuppyCardProps = {
    puppy: Puppy;
-   setPuppies: React.Dispatch<React.SetStateAction<Puppy[]>>;
+   setPuppies: Dispatch<SetStateAction<Puppy[]>>;
 };
 
 const PuppyCard = ({ puppy, setPuppies }: PuppyCardProps) => {

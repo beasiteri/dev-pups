@@ -1,11 +1,11 @@
 import { Heart, LoaderCircle } from 'lucide-react';
-import { useState } from 'react';
-import { toggleLikedStatus } from '../queries';
+import { useState, type Dispatch, type SetStateAction } from 'react';
+import { likePuppy, unlikePuppy } from '../queries';
 import type { Puppy } from '../types/puppy';
 
 type LikedToggleProps = {
    puppy: Puppy;
-   setPuppies: React.Dispatch<React.SetStateAction<Puppy[]>>;
+   setPuppies: Dispatch<SetStateAction<Puppy[]>>;
 };
 
 const LikeToggle = ({ puppy, setPuppies }: LikedToggleProps) => {
@@ -13,14 +13,17 @@ const LikeToggle = ({ puppy, setPuppies }: LikedToggleProps) => {
 
    async function toggleLikedPuppy() {
       setPending(true);
-      const updatedPuppy = await toggleLikedStatus(puppy._id);
-      setPuppies((prevPuppies) =>
-         prevPuppies.map((existingPuppy) =>
-            existingPuppy._id === updatedPuppy._id
-               ? updatedPuppy
-               : existingPuppy
-         )
+
+      const isLiked = puppy.likedBy.includes(1);
+
+      const updatedPuppy = isLiked
+         ? await unlikePuppy(puppy._id)
+         : await likePuppy(puppy._id);
+
+      setPuppies((prev) =>
+         prev.map((p) => (p._id === updatedPuppy._id ? updatedPuppy : p))
       );
+
       setPending(false);
    }
 
