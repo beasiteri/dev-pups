@@ -7,7 +7,7 @@ export default defineConfig({
    plugins: [react(), tailwindcss()],
    server: {
       proxy: {
-         '/puppies': 'http://localhost:3000'
-      }
-   }
+         '/puppies': 'http://localhost:3000',
+      },
+   },
 });

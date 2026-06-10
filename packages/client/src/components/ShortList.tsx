@@ -1,18 +1,13 @@
-import { Heart, X } from 'lucide-react';
+import { Heart } from 'lucide-react';
 import type { Puppy } from '../types/puppy';
-import { useLiked } from '../context/likedContext';
+import DeleteButton from './DeleteButton';
 
 type ShortListProps = {
    puppies: Puppy[];
+   setPuppies: React.Dispatch<React.SetStateAction<Puppy[]>>;
 };
 
-const ShortList = ({ puppies }: ShortListProps) => {
-   const { liked, setLiked } = useLiked();
-
-   function removeFromLiked(puppyId: Puppy['_id']) {
-      setLiked(liked.filter((id) => id !== puppyId));
-   }
-
+const ShortList = ({ puppies, setPuppies }: ShortListProps) => {
    return (
       <div>
          <h2 className="flex items-center gap-2 font-medium">
@@ -21,7 +16,7 @@ const ShortList = ({ puppies }: ShortListProps) => {
          </h2>
          <ul className="mt-4 flex flex-wrap gap-4">
             {puppies
-               .filter((pup) => liked.includes(pup._id))
+               .filter((pup) => pup.likedBy.includes(1))
                .map((puppy) => (
                   <li
                      key={puppy._id}
@@ -35,12 +30,7 @@ const ShortList = ({ puppies }: ShortListProps) => {
                         src={puppy.imagePath}
                      />
                      <p className="px-3 text-sm text-slate-800">{puppy.name}</p>
-                     <button
-                        className="group h-full border-l border-slate-100 px-2 hover:bg-slate-100"
-                        onClick={() => removeFromLiked(puppy._id)}
-                     >
-                        <X className="size-4 stroke-slate-400 group-hover:stroke-red-400 cursor-pointer" />
-                     </button>
+                     <DeleteButton id={puppy._id} setPuppies={setPuppies} />
                   </li>
                ))}
          </ul>

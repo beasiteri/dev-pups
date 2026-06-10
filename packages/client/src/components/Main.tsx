@@ -1,35 +1,30 @@
 import { use, useState } from 'react';
-
+import getPuppies from '../queries';
+import type { Puppy } from '../types/puppy';
 import NewPuppyForm from './NewPuppyForm';
 import PuppiesList from './PuppiesList';
 import Search from './Search';
 import ShortList from './ShortList';
 
-import { LikedContext } from '../context/likedContext';
-import type { Puppy } from '../types/puppy';
-import getPuppies from '../queries';
-
 const puppyPromise = getPuppies();
 
 const Main = () => {
    const apiPuppies = use(puppyPromise);
-   const [liked, setLiked] = useState<Puppy['_id'][]>([]);
-   const [searchQuery, setSearchQuery] = useState<string>('');
    const [puppies, setPuppies] = useState<Puppy[]>(apiPuppies);
+   const [searchQuery, setSearchQuery] = useState<string>('');
 
    return (
       <main>
-         <LikedContext.Provider value={{ liked, setLiked }}>
-            <div className="mt-24 mb-10 grid gap-8 sm:grid-cols-2">
-               <Search
-                  searchQuery={searchQuery}
-                  setSearchQuery={setSearchQuery}
-               />
-               <ShortList puppies={puppies} />
-            </div>
+         <div className="mt-24 mb-10 grid gap-8 sm:grid-cols-2">
+            <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+            <ShortList puppies={puppies} setPuppies={setPuppies} />
+         </div>
 
-            <PuppiesList puppies={puppies} searchQuery={searchQuery} />
-         </LikedContext.Provider>
+         <PuppiesList
+            puppies={puppies}
+            searchQuery={searchQuery}
+            setPuppies={setPuppies}
+         />
          <NewPuppyForm setPuppies={setPuppies} />
       </main>
    );

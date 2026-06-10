@@ -4,9 +4,14 @@ import PuppyCard from './PuppyCard';
 type PuppiesListProps = {
    puppies: Puppy[];
    searchQuery: string;
+   setPuppies: React.Dispatch<React.SetStateAction<Puppy[]>>;
 };
 
-const PuppiesList = ({ puppies, searchQuery }: PuppiesListProps) => {
+const PuppiesList = ({
+   puppies,
+   searchQuery,
+   setPuppies,
+}: PuppiesListProps) => {
    return (
       <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
          {puppies
@@ -14,7 +19,11 @@ const PuppiesList = ({ puppies, searchQuery }: PuppiesListProps) => {
                puppy.name.toLowerCase().includes(searchQuery.toLowerCase())
             )
             .map((puppy) => (
-               <PuppyCard key={puppy._id} puppy={puppy} />
+               <PuppyCard
+                  key={puppy._id}
+                  puppy={puppy}
+                  setPuppies={setPuppies}
+               />
             ))}
       </ul>
    );

@@ -3,9 +3,10 @@ import LikeToggle from './LikeToggle';
 
 type PuppyCardProps = {
    puppy: Puppy;
+   setPuppies: React.Dispatch<React.SetStateAction<Puppy[]>>;
 };
 
-const PuppyCard = ({ puppy }: PuppyCardProps) => {
+const PuppyCard = ({ puppy, setPuppies }: PuppyCardProps) => {
    return (
       <li
          key={puppy._id}
@@ -22,7 +23,7 @@ const PuppyCard = ({ puppy }: PuppyCardProps) => {
                <span className="text-slate-300">·</span>
                <p className="text-slate-500">{puppy.trait}</p>
             </div>
-            <LikeToggle id={puppy._id} />
+            <LikeToggle puppy={puppy} setPuppies={setPuppies} />
          </div>
       </li>
    );

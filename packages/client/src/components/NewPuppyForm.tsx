@@ -18,19 +18,10 @@ const NewPuppyForm = ({ setPuppies }: NewPuppyFormProps) => {
                   name: formData.get('name') as string,
                   trait: formData.get('trait') as string,
                   imagePath: `/images/${Math.floor(Math.random() * 16) + 7}.jpg`,
+                  likedBy: [1],
                };
                setPuppies((prevPuppies) => [...prevPuppies, newPuppy]);
             }}
-            // This is a very basic form submission handler that just logs the form data to the console.
-            /* onSubmit={(e) => {
-                  e.preventDefault();
-                  const formData = new FormData(e.target);
-               //const name = formData.get('name');
-               //const trait = formData.get('trait');
-               //console.log(name, trait);
-               // This is a neat way to get all the form data as an object
-                  console.log(Object.fromEntries(formData));
-               }} */
             className="mt-4 flex w-full flex-col items-start gap-4"
          >
             <div className="grid w-full gap-6 md:grid-cols-3">

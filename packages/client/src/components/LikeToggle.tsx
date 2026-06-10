@@ -1,28 +1,27 @@
 import { Heart, LoaderCircle } from 'lucide-react';
-import type { Puppy } from '../types/puppy';
-import { useLiked } from '../context/likedContext';
 import { useState } from 'react';
+import { toggleLikedStatus } from '../queries';
+import type { Puppy } from '../types/puppy';
 
 type LikedToggleProps = {
-   id: Puppy['_id'];
+   puppy: Puppy;
+   setPuppies: React.Dispatch<React.SetStateAction<Puppy[]>>;
 };
 
-const LikeToggle = ({ id }: LikedToggleProps) => {
-   const { liked, setLiked } = useLiked();
-   const isThisPuppyLiked = liked.includes(id);
+const LikeToggle = ({ puppy, setPuppies }: LikedToggleProps) => {
    const [pending, setPending] = useState(false);
 
-   function toggleLikedPuppy() {
+   async function toggleLikedPuppy() {
       setPending(true);
-
-      setTimeout(() => {
-         if (isThisPuppyLiked) {
-            setLiked(liked.filter((pupid) => pupid !== id));
-         } else {
-            setLiked([...liked, id]);
-         }
-         setPending(false);
-      }, 1500);
+      const updatedPuppy = await toggleLikedStatus(puppy._id);
+      setPuppies((prevPuppies) =>
+         prevPuppies.map((existingPuppy) =>
+            existingPuppy._id === updatedPuppy._id
+               ? updatedPuppy
+               : existingPuppy
+         )
+      );
+      setPending(false);
    }
 
    return (
@@ -32,7 +31,7 @@ const LikeToggle = ({ id }: LikedToggleProps) => {
          ) : (
             <Heart
                className={`cursor-pointer ${
-                  isThisPuppyLiked
+                  puppy.likedBy.includes(1)
                      ? 'fill-pink-500 stroke-none'
                      : 'stroke-slate-200 group-hover:stroke-slate-300'
                }`}
